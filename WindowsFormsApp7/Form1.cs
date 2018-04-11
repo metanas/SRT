@@ -33,7 +33,7 @@ namespace WindowsFormsApp7
         private void button1_Click(object sender, EventArgs e)
         {
             PdfCreator pdf = new PdfCreator();
-            pdf.CreateCommandPdf("aaaaaa.pdf");
+            pdf.CreateCommandPdf("aaaaaa.pdf","Doc Tech");
 
             //cell.SetNextRenderer(new WatermarkedCellRenderer(cell, "Bruno"));
             //PdfFont font = PdfFontFactory.CreateFont(FontProgramFactory.CreateFont(FontConstants.HELVETICA_BOLD));
