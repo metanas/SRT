@@ -1,6 +1,5 @@
 ﻿using iText.IO.Font;
 using iText.IO.Image;
-using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
@@ -29,24 +28,47 @@ namespace WindowsFormsApp7
         public Form1()
         {
             InitializeComponent();
+            DBConnect db = new DBConnect();
+            Gain();
+            Client();
         }
-        private void button1_Click(object sender, EventArgs e)
+
+
+        private void Client()
+        {  
+            Cliente.LabelText = DBConnect.Get("SELECT count(distinct dis) FROM command");
+        }
+
+        private void Gain()
         {
-            PdfCreator pdf = new PdfCreator();
-            pdf.CreateCommandPdf("aaaaaa.pdf","Doc Tech");
+            float prixPaye = float.Parse(DBConnect.Get("Select sum(PricePay) FROM command"));
+            float priceImpaye = float.Parse(DBConnect.Get("SELECT sum(montantDhs) FROM description"));
+            paid.LabelText = prixPaye.ToString();
+            impaid.LabelText = priceImpaye.ToString();
 
-            //cell.SetNextRenderer(new WatermarkedCellRenderer(cell, "Bruno"));
-            //PdfFont font = PdfFontFactory.CreateFont(FontProgramFactory.CreateFont(FontConstants.HELVETICA_BOLD));
-            //Paragraph para = new Paragraph("Test").SetFont(font);
-            //para.SetFixedLeading(0);
-            //para.SetMultipliedLeading(1);
-            //table.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT);
-            //cell.SetHeight(20);
-            //cell.SetWidth(100);
-            //cell.SetVerticalAlignment(VerticalAlignment.MIDDLE);
-            //cell.Add(para);
-            //table.AddCell(cell);
+            float sum = prixPaye - priceImpaye;
+            if (sum < 0) {
+                gaint.colorActive = Color.DarkRed;
+                gaint.color = Color.DarkRed;
+                gaint.BackColor = Color.DarkRed;
+            }
+            else
+            {
+                gaint.colorActive = Color.SeaGreen;
+                gaint.color = Color.SeaGreen;
+                gaint.BackColor = Color.SeaGreen;
+            }
+        
+            gaint.LabelText = (prixPaye - priceImpaye).ToString();
+        }
 
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            Command command = new Command();
+            command.TopLevel = false;
+            command.Parent = panel2;
+            command.Dock = DockStyle.Fill;
+            command.Show();   
         }
     }
 }
