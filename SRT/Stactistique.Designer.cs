@@ -53,6 +53,7 @@
             this.Cliente.Name = "Cliente";
             this.Cliente.Size = new System.Drawing.Size(287, 160);
             this.Cliente.TabIndex = 8;
+            this.Cliente.Click += new System.EventHandler(this.Cliente_Click);
             // 
             // impaid
             // 

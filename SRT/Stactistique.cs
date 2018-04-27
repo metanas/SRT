@@ -82,5 +82,10 @@ namespace SRT
         {
             Form1.openForm(new Impayer(false), this.Parent);
         }
+
+        private void Cliente_Click(object sender, EventArgs e)
+        {
+            Form1.openForm(new Client(), this.Parent);
+        }
     }
 }

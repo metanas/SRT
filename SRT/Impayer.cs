@@ -23,6 +23,7 @@ namespace SRT
         private void Impayer_Load(object sender, EventArgs e)
         {
             int w = 0;
+            pictureBox1.Image = (paid) ? SRT.Properties.Resources.real_estate_malta_5 : SRT.Properties.Resources.Tcm_Paid_stamp_300x183;
             MySqlDataReader dataReader = DBConnect.Gets("SELECT c.dis, nFacture, Expi, sum(montantDhs) as w, PricePay, imageConfermation FROM command c Left join description d on(c.id = d.command) group by c.id");
             while (dataReader.Read())
             {
