@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp7
+namespace SRT
 {
     public partial class Impayer : Form
     {

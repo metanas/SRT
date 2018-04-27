@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp7
+﻿namespace SRT
 {
     partial class Impayer
     {
@@ -62,7 +62,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WindowsFormsApp7.Properties.Resources.real_estate_malta_5;
+            this.pictureBox1.Image = global::SRT.Properties.Resources.real_estate_malta_5;
             this.pictureBox1.Location = new System.Drawing.Point(752, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(89, 113);

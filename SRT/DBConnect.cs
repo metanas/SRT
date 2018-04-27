@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace WindowsFormsApp7
+namespace SRT
 {
     public class DBConnect
     {

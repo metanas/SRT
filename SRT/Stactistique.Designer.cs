@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp7
+﻿namespace SRT
 {
     partial class Stactistique
     {
