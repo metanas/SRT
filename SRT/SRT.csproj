@@ -146,6 +146,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Releve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Releve.Designer.cs">
+      <DependentUpon>Releve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReleveCreator.cs" />
     <Compile Include="Stactistique.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +175,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Releve.resx">
+      <DependentUpon>Releve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stactistique.resx">
       <DependentUpon>Stactistique.cs</DependentUpon>

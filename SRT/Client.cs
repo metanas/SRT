@@ -33,5 +33,14 @@ namespace SRT
 
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 4)
+            {
+                Releve releve = new Releve(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                releve.ShowDialog();
+            }
+        }
     }
 }

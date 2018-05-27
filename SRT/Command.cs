@@ -38,7 +38,7 @@ namespace SRT
             for(int i = 0; i < dataGridView1.Rows.Count-1; i++)
             {
                 list.Add(dataGridView1.Rows[i].Cells[0].Value.ToString());
-                list2.Add(dataGridView1.Rows[i].Cells[1].Value.ToString());
+                list2.Add((dataGridView1.Rows[i].Cells[1].Value == null) ? "0" : dataGridView1.Rows[i].Cells[1].Value.ToString());
                 list3.Add(float.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()));
             }
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
@@ -48,10 +48,8 @@ namespace SRT
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     PdfCreator pdfCreator = new PdfCreator();
-                    IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
-                    DateTime d = DateTime.Now;
-                    string[] frenchJuly28Formats = d.GetDateTimeFormats('d', culture);
-                    DBConnect.Post("Insert into command (dis, nFacture, lDate, ref, Remorque, NBrColis, Metre, Expi, volume,  PoidsPrut, CVente, poidtaxe) Values('" + des + "', '" + 1000 + "','" + frenchJuly28Formats[4] + "', 'ref to change', '" + textBox1.Text  + "', '" + textBox2.Text.ToString()  + "', '" + textBox3.Text.ToString() + "' ,'" + textBox4.Text + "', '" + textBox5.Text.ToString() + "', '" + textBox6.Text.ToString() + "' , '" + textBox7.Text + "' , '" + textBox8.Text.ToString() + "')");
+                    String d = DateTime.Now.ToString("yyyy-MM-dd");
+                    DBConnect.Post("Insert into command (dis, nFacture, lDate, ref, Remorque, NBrColis, Metre, Expi, volume,  PoidsPrut, CVente, poidtaxe) Values('" + des + "', '" + 1000 + "','" + d + "', 'ref to change', '" + textBox1.Text  + "', '" + textBox2.Text.ToString()  + "', '" + textBox3.Text.ToString() + "' ,'" + textBox4.Text + "', '" + textBox5.Text.ToString() + "', '" + textBox6.Text.ToString() + "' , '" + textBox7.Text + "' , '" + textBox8.Text.ToString() + "')");
                     String id = DBConnect.Get("SELECT max(id) FROM command");
                     for (int i=0; i< list.Count; i++)
                         DBConnect.Post("INSERT INTO description (dis, montantEuro, montantDhs, command) values ('" + list[i] + "', '" + list2[i] + "', '" + list3[i] + "', '" + id + "')" );

@@ -25,7 +25,7 @@ namespace SRT
         {
             int im = 0;
             int pay = 0;
-            MySqlDataReader dataReader = DBConnect.Gets("SELECT sum(montantDhs) as w, PricePay FROM command c Left join description d on(c.id = d.command) group by c.id");
+            MySqlDataReader dataReader = DBConnect.Gets("SELECT sum(montantDhs) as w, PricePay FROM command c Left join description d on (c.id = d.command) group by c.id");
             while (dataReader.Read())
             {
                 if(float.Parse(dataReader[0].ToString()) - float.Parse(dataReader[1].ToString()) > 0)
